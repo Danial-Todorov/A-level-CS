@@ -18,3 +18,4 @@ if input in itemsL:
   print(itemsU[n], 'is the', str(n + 1) + '%s term in the list.' % suffix)
 else:
   print('The item is not in the list.')
+
