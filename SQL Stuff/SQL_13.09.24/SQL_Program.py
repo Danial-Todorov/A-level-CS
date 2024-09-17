@@ -54,14 +54,8 @@ else:
     c.execute('''
               SELECT Firstname FROM Customer''')
     data2 = c.fetchall()
-
-    for row in data:
-        print(row)
-
     
+    for row in range(len(data)):
+        print(data2[row][0] + ' has a balance of £' + str(data[row][0]))
+
 conn.close()
-
-#hello
-
-
-
