@@ -1,61 +1,58 @@
 import sqlite3
 
-
 name1 = input('Enter a username: ')
-name1 = name1[0].upper() + name1[1:].lower()
+name1 = name1[0].upper() + name1[1:].lower() # Puts the given name in the correct format
 
 conn = sqlite3.connect('BankAccounts.db')
 c = conn.cursor()
 
 c.execute('''
           SELECT CustomerID FROM Customer WHERE FirstName = ?''', (name1,))
-
 customerID = c.fetchone()
-customerID = str(customerID[0])
+customerID = str(customerID[0]) # formatting
 
 c.execute('''
           SELECT Balance FROM Account WHERE CustomerID = ?''', (customerID,))
-
 customerBalance = c.fetchone()
-print(name1, 'has a balance of £' + str(customerBalance[0]))
 
+print(name1, 'has a balance of £' + str(customerBalance[0])) # Displays the balance of the user
 print()
 
 name2 = input('Enter another username to trasfer money to: ')
-transferAmount = float(input('Enter the amount to transfer: '))
+transferAmount = float(input('Enter the amount to transfer: £'))
+print()
 
-name2 = name2[0].upper() + name2[1:].lower()
+name2 = name2[0].upper() + name2[1:].lower() # formatting given name
 
-if transferAmount > customerBalance[0]:
+if transferAmount > customerBalance[0]: # Checks if the user has enough money
     print('Insufficient funds')
 else:
     c.execute('''
-              UPDATE Account SET Balance = Balance - ? WHERE CustomerID = ?''', (transferAmount, customerID))
+              UPDATE Account SET Balance = Balance - ? WHERE CustomerID = ?''', (transferAmount, customerID)) # Removes money from the first account
+    
     c.execute('''
               SELECT CustomerID FROM Customer WHERE FirstName = ?''', (name2,))
-    
     customerID2 = c.fetchone()
-    customerID2 = str(customerID2[0])
+    customerID2 = str(customerID2[0]) # formatting
 
     c.execute('''
-              UPDATE Account SET Balance = Balance + ? WHERE CustomerID = ?''', (transferAmount, customerID2))
+              UPDATE Account SET Balance = Balance + ? WHERE CustomerID = ?''', (transferAmount, customerID2)) # Adds money to the second account
     
-    conn.commit()
-    print()
-    print('Transfer complete')
+    conn.commit() # This saves the changes to the database
 
+    print('Transfer complete')
     print()
     print('New balances:')
 
     c.execute('''
-              SELECT Balance FROM Account''')
-    data = c.fetchall()
+              SELECT Balance FROM Account''') # Selects all balances
+    balances = c.fetchall()
     
     c.execute('''
-              SELECT Firstname FROM Customer''')
-    data2 = c.fetchall()
+              SELECT Firstname FROM Customer''') # Selects all first names
+    firstNames = c.fetchall()
     
-    for row in range(len(data)):
-        print(data2[row][0] + ' has a balance of £' + str(data[row][0]))
+    for i in range(len(balances)):
+        print(firstNames[i][0] + ' has a balance of £' + str(balances[i][0])) # Displays all first names with their balances
 
-conn.close()
+conn.close() # Closes the database connection
