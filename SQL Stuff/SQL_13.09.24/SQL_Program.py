@@ -8,7 +8,7 @@ conn = sqlite3.connect('BankAccounts.db')
 c = conn.cursor()
 
 c.execute('''
-             SELECT CustomerID FROM Customer WHERE FirstName = ?''', (name1,))
+          SELECT CustomerID FROM Customer WHERE FirstName = ?''', (name1,))
 
 customerID = c.fetchone()
 customerID = str(customerID[0])

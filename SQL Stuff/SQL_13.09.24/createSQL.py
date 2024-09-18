@@ -9,9 +9,9 @@ c.execute('''CREATE TABLE Account
              (AccountID text, CustomerID int,  Balance real)''')
 
 # Insert data
-c.execute("INSERT INTO Account VALUES ('JBLAcc1001',1,35.15)")
+c.execute("INSERT INTO Account VALUES ('JBLAcc1001',1,35.25)")
 c.execute("INSERT INTO Account VALUES ('JBLAcc1002',2,150.00)")
-c.execute("INSERT INTO Account VALUES ('JBLAcc1003',3,12.75)")
+c.execute("INSERT INTO Account VALUES ('JBLAcc1003',3,14.75)")
 
 # Create table
 c.execute('''CREATE TABLE Customer
