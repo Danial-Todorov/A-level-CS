@@ -10,17 +10,19 @@ c.execute('''CREATE TABLE Account
 
 # Insert data
 c.execute("INSERT INTO Account VALUES ('JBLAcc1001',1,35.25)")
-c.execute("INSERT INTO Account VALUES ('JBLAcc1002',2,150.00)")
-c.execute("INSERT INTO Account VALUES ('JBLAcc1003',3,14.75)")
+c.execute("INSERT INTO Account VALUES ('JBLAcc1002',2,265.00)")
+c.execute("INSERT INTO Account VALUES ('JBLAcc1003',3,9.75)")
+c.execute("INSERT INTO Account VALUES ('JBLAcc1004',4,90.00)")
 
 # Create table
 c.execute('''CREATE TABLE Customer
              (CustomerID int,  FirstName text, LastName text)''')
 
 # Insert data
-c.execute("INSERT INTO Customer VALUES (1,'Bob','Smith')")
-c.execute("INSERT INTO Customer VALUES (2,'Jim','Wilson')")
-c.execute("INSERT INTO Customer VALUES (3,'Willie','Johnson')")
+c.execute("INSERT INTO Customer VALUES (1,'Danial','Todorov')")
+c.execute("INSERT INTO Customer VALUES (2,'Alex','Johnson')")
+c.execute("INSERT INTO Customer VALUES (3,'Tommy','Henderson-Thynne')")
+c.execute("INSERT INTO Customer VALUES (4,'Sofia','Zablocka')")
 
 
 # Save (commit) the changes

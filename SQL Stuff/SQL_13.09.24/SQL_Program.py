@@ -1,4 +1,5 @@
 import sqlite3
+import time
 
 name1 = input('Enter a username: ')
 name1 = name1[0].upper() + name1[1:].lower() # Puts the given name in the correct format
@@ -19,13 +20,20 @@ print(name1, 'has a balance of £' + str(customerBalance[0])) # Displays the bal
 print()
 
 name2 = input('Enter another username to trasfer money to: ')
+name2 = name2[0].upper() + name2[1:].lower() # formatting given name
+
 transferAmount = float(input('Enter the amount to transfer: £'))
 print()
 
-name2 = name2[0].upper() + name2[1:].lower() # formatting given name
-
 if transferAmount > customerBalance[0]: # Checks if the user has enough money
     print('Insufficient funds')
+
+elif transferAmount <= 0:
+    print('Invalid amount')
+
+elif name1 == name2:
+    print('You cannot transfer money to yourself')
+
 else:
     c.execute('''
               UPDATE Account SET Balance = Balance - ? WHERE CustomerID = ?''', (transferAmount, customerID)) # Removes money from the first account
@@ -40,8 +48,10 @@ else:
     
     conn.commit() # This saves the changes to the database
 
+    time.sleep(1)
     print('Transfer complete')
     print()
+    time.sleep(1)
     print('New balances:')
 
     c.execute('''
