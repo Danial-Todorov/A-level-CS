@@ -30,9 +30,9 @@ c.execute("INSERT INTO Customer VALUES (3,'Tommy','Henderson-Thynne')")
 c.execute("INSERT INTO Customer VALUES (4,'Sofia','Zablocka')")
 c.execute("INSERT INTO Customer VALUES (5,'Praveet','Khambhaita')")
 c.execute("INSERT INTO Customer VALUES (6,'David','Zablocki')")
-c.execute("INSERT INTO Customer VALUES (7,'John','Smith')")
+c.execute("INSERT INTO Customer VALUES (7,'Jeremy','Bell')")
 c.execute("INSERT INTO Customer VALUES (8,'Muhammad','Ali')")
-c.execute("INSERT INTO Customer VALUES (9,'Ashtoon','Khan')")
+c.execute("INSERT INTO Customer VALUES (9,'Ashton','Khan')")
 
 # Save (commit) the changes
 conn.commit()
