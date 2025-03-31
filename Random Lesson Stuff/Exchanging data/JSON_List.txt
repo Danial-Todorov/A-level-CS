@@ -1,0 +1,57 @@
+{
+  "employees": [
+    {
+      "name": "Sam",
+      "Dept": "HR",
+      "salary": 5000
+    },
+ 
+    {
+      "name": "Mayra",
+      "Dept": "Sales",
+      "salary": 6000
+    },
+ 
+    {
+      "name": "Hisham",
+      "Dept": "HR",
+      "salary": 7500
+    },
+ 
+    {
+      "name": "Arsh",
+      "Dept": "Production",
+      "salary": 10000
+    },
+    {
+        "name": "Danial",
+        "Dept": "CEO",
+        "salary": 20000
+    },
+    {
+        "name": "Tommy",
+        "Dept": "Research",
+        "salary": 9000
+    },
+    {
+        "name": "David",
+        "Dept": "Janitor",
+        "salary": 1500
+    },
+    {
+        "name": "Jack",
+        "Dept": "HR",
+        "salary": 2500
+    },
+    {
+        "name": "Ashton",
+        "Dept": "Mascot",
+        "salary": 12000
+    },
+    {
+        "name": "Jayden",
+        "Dept": "Intern",
+        "salary": 15000
+    }
+  ]
+}
